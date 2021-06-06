@@ -1,15 +1,24 @@
 from tkinter import *
 from tkinter import ttk
 
+def resize(ev=None):
+    label.configure(font='Aria -%d bold' %scale.get())
+
 root = Tk()
-combo = ttk.Combobox(root)
-combo.pack()
-combo.config(values=('jan', 'feb', 'mar','apr','may','jun'))
+root.geometry('500x500')
 
-print('feb')
-combo.set('apr')
+label = ttk.Label(root, text='hello tkinter')
+label.pack(fill = 'y', expand=1)
+label.config(foreground='silver', background='brown')
 
-spin = Spinbox(root, from_=1990, to=2021).pack()
-print(2000)
+scale = ttk.Scale(root, from_=10,to=70,command=resize)
+scale.set(20)
+scale.pack()
+
+quit = ttk.Button(root,text='quit', command=root.quit)
+quit.pack()
+
+
+
 
 root.mainloop()
