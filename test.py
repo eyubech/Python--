@@ -1,20 +1,17 @@
 from tkinter import *
-win = Tk()
-win.geometry('200x200')
+from tkinter import ttk
 
-def show_entey():
-    print("Name:%s\npassword:%s"%(e1.get(), e2.get()))
+root = Tk()
+root.title("frame")
+frame = ttk.Frame(root)
+frame.pack()
 
-e1 = Entry(win)
-e2 = Entry(win)
+frame.config(height=200, width=400)
+frame.config(relief = SUNKEN)
 
-e1.grid(row=0, column=1)
-e2.grid(row=1, column=1)
+ttk.Button(frame, text='Frame').pack()
+frame.config(padding=(50, 25))
+ttk.LabelFrame(root, height = 200, width = 400, text = 'My frame').pack()
 
-Label(win, text='name').grid(row=0)
-Label(win, text='password').grid(row=1)
 
-Button(win, text='quit', command=win.quit).grid(row=2, column=0)
-Button(win, text='show', command=show_entey).grid(row=2, column=1)
-
-mainloop()
+root.mainloop()
