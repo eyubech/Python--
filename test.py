@@ -2,16 +2,26 @@ from tkinter import *
 from tkinter import ttk
 
 root = Tk()
-root.title("frame")
-frame = ttk.Frame(root)
-frame.pack()
+Progressbar = ttk.Progressbar(root, orient = HORIZONTAL, length = 300)
+Progressbar.pack()
 
-frame.config(height=200, width=400)
-frame.config(relief = SUNKEN)
+Progressbar.config(maximum=20, value=3)
+Progressbar.start()
 
-ttk.Button(frame, text='Frame').pack()
-frame.config(padding=(50, 25))
-ttk.LabelFrame(root, height = 200, width = 400, text = 'My frame').pack()
+value = DoubleVar()
+Progressbar.config(variable = value)
+
+scale = ttk.Scale(root, orient = HORIZONTAL
+                  ,length = 400
+                  ,variable=value
+                  ,from_=0.0 ,to =20)
+scale.pack()
+scale.set(3)
+root.mainloop()
+
+
+
+
 
 
 root.mainloop()
