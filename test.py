@@ -14,4 +14,5 @@ logo = PhotoImage(file='1.png')
 
 button.config(image=logo)
 print('first test')
+print('test from github')
 win.mainloop()
