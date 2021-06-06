@@ -1,18 +1,20 @@
 from tkinter import *
-from tkinter import ttk
 win = Tk()
+win.geometry('200x200')
 
-button = ttk.Button(win, text='Click me')
-button.pack()
+def show_entey():
+    print("Name:%s\npassword:%s"%(e1.get(), e2.get()))
 
-def callback():
-    print('python')
+e1 = Entry(win)
+e2 = Entry(win)
 
-button.config(command = callback)
+e1.grid(row=0, column=1)
+e2.grid(row=1, column=1)
 
-logo = PhotoImage(file='1.png')
+Label(win, text='name').grid(row=0)
+Label(win, text='password').grid(row=1)
 
-button.config(image=logo)
-print('first test')
-print('test from github')
-win.mainloop()
+Button(win, text='quit', command=win.quit).grid(row=2, column=0)
+Button(win, text='show', command=show_entey).grid(row=2, column=1)
+
+mainloop()
