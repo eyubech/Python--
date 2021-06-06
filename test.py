@@ -2,26 +2,14 @@ from tkinter import *
 from tkinter import ttk
 
 root = Tk()
-Progressbar = ttk.Progressbar(root, orient = HORIZONTAL, length = 300)
-Progressbar.pack()
+combo = ttk.Combobox(root)
+combo.pack()
+combo.config(values=('jan', 'feb', 'mar','apr','may','jun'))
 
-Progressbar.config(maximum=20, value=3)
-Progressbar.start()
+print('feb')
+combo.set('apr')
 
-value = DoubleVar()
-Progressbar.config(variable = value)
-
-scale = ttk.Scale(root, orient = HORIZONTAL
-                  ,length = 400
-                  ,variable=value
-                  ,from_=0.0 ,to =20)
-scale.pack()
-scale.set(3)
-root.mainloop()
-
-
-
-
-
+spin = Spinbox(root, from_=1990, to=2021).pack()
+print(2000)
 
 root.mainloop()
