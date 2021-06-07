@@ -1,14 +1,22 @@
 from tkinter import *
 from tkinter import ttk
 
-def shortcut(action):
-    print(action)
 window = Tk()
 
-window.bind('<Control-c>',lambda e:shortcut('Copy'))
-window.bind('<Control-v>',lambda e:shortcut('paste'))
-window.bind('<Control-x>',lambda e:shortcut('cut'))
-window.bind('<Control-s>',lambda e:shortcut('save'))
+label = ttk.Label(window, text='hello world')
+label.pack()
+label.config(foreground='silver', background='brown')
+label.config(font=('Aria',20,'bold'))
+
+label.config(wraplength=150)
+label.config(justify=CENTER)
+
+
+logo = PhotoImage(file='1.png')
+label.config(image=logo)
+label.config(compound='center')
+label.config(compound='right')
+
 
 
 window.mainloop()
