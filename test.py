@@ -1,22 +1,22 @@
 from tkinter import *
 from tkinter import ttk
 
-window = Tk()
+root = Tk()
+note = ttk.Notebook(root)
 
-label = ttk.Label(window, text='hello world')
-label.pack()
-label.config(foreground='silver', background='brown')
-label.config(font=('Aria',20,'bold'))
-
-label.config(wraplength=150)
-label.config(justify=CENTER)
-
-
-logo = PhotoImage(file='1.png')
-label.config(image=logo)
-label.config(compound='center')
-label.config(compound='right')
+t1 = Frame(note)
+t2 = Frame(note)
+t3 = Frame(note)
+ttk.Button(t1, text='Exit', command=root.destroy).pack(padx=100, pady=100)
+ttk.Button(t2, text='Exit', command=root.destroy).pack(padx=100, pady=100)
+ttk.Button(t3, text='Exit', command=root.destroy).pack(padx=100, pady=100)
 
 
+note.add(t1, text='Tab One')
+note.add(t2, text='Tab Two')
+note.add(t3, text='Tab Three')
 
-window.mainloop()
+note.pack()
+
+
+root.mainloop()
