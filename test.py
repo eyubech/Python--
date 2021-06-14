@@ -1,35 +1,33 @@
 from tkinter import *
 from functools import partial
-from tkinter import messagebox
-tkWindow = Tk()
-tkWindow.geometry('400x150')
-tkWindow.title('Admin login')
-def validateLogin(username, password):
-	a = username.get()
-	b = password.get()
-	if a == 'admin' and b == 'admin':
-		newWindow = Toplevel(tkWindow)
-		newWindow.title("Profile")
-		newWindow.geometry("200x200")
-		Label(newWindow,text="Welcome").pack()
-	else:
-		messagebox.showwarning("Error", "user not found")
-	return
+from tkinter import *
+from time import strftime
+import tkinter as tk
+root = Tk()
+root.title('Masjid')
+root.geometry('4800x4800')
+root.configure(bg='Black')
+header = Frame(height=100, width=2000, bg='grey').place(x=0,y=0)
+
+#Clock
+def time():
+    clock = strftime('%A:%M:%S %p')
+    time_clock.config(text=clock)
+    time_clock.after(1000, time)
+time_clock = Label(root, font=('calibri', 40, 'bold'),background='grey',foreground='white')
+time_clock.pack()
+time()
+
+#Date
+def Date():
+    date = strftime('%A:%M:%S %p')
+    time_clock.config(text=date)
+    time_clock.after(1000, time)
+time_date = Label(root, font=('calibri', 30, 'bold'),background='grey',foreground='white')
+time_date.pack()
+time()
 
 
 
-usernameLabel = Label(tkWindow, text="User Name").grid(row=0, column=0)
-username = StringVar()
-usernameEntry = Entry(tkWindow, textvariable=username).grid(row=0, column=1)
 
-passwordLabel = Label(tkWindow,text="Password").grid(row=1, column=0)
-password = StringVar()
-passwordEntry = Entry(tkWindow, textvariable=password, show='*').grid(row=1, column=1)
-
-validateLogin = partial(validateLogin, username, password)
-
-loginButton = Button(tkWindow, text="Login",command=validateLogin).grid(row=4, column=0)
-
-
-
-tkWindow.mainloop()
+mainloop()
