@@ -1,16 +1,25 @@
-from selenium import webdriver
-web = webdriver.Chrome()
-web.set_window_position(2000,550)
-web.get("https://www.amazon.com/")
+import tkinter as tk
+import pytube
+root = tk.Tk()
+root.title('Youtube downloader')
+root.geometry('500x100')
 
-y = web.find_element_by_id("twotabsearchtextbox")
-y.send_keys("Iphone")
+lien_var = tk.StringVar()
+def url():
+    lien = lien_var.get()
+    youtube = pytube.YouTube(lien)
+    video = youtube.streams.first()
+    video.download()
+    lien_var.set("")
 
-w = web.find_element_by_id("nav-search-submit-button")
-w.click()
 
-ip = web.find_element_by_class_name("s-image")
-ip.click()
+title = tk.Label(root, text='youtube downloader',font=('Helvatical bold',30,'bold')).pack()
+ent = tk.Entry(root, width="50", textvariable = lien_var).pack()
+down = tk.Button(root, text='Download',command=url).pack()
 
-cart = web.find_element_by_id("add-to-cart-button")
-cart.click()
+
+
+
+
+
+root.mainloop()
