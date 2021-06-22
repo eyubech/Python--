@@ -11,7 +11,7 @@ cr.execute("create table if not exists skills (name text, progress integer, user
 my_list=['samsung', 'xiaomi', 'iphone', 'lg', 'sony', 'huawei', 'realme']
 
 for key, phone in enumerate(my_list):
-    cr.execute(f"insert into users(user_id, name) values({key}, '{phone}')")
+    cr.execute(f"insert into users(user_id, name) values({key+1}, '{phone}')")
 
 
 db.commit()
