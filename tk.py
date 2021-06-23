@@ -2,13 +2,14 @@ from tkinter import *
 import tkinter as tk
 from selenium import webdriver
 from tkinter import messagebox
+from selenium.webdriver.common.action_chains import ActionChains
 import time
 root = tk.Tk()
 root.title('Egybest Downloader')
 root.geometry('500x150')
 
 lien_var = tk.StringVar()
-#fonction
+
 def url():
     film = lien_var.get()
     url = 'https://back.egybest.co/movies/2020'
@@ -16,16 +17,14 @@ def url():
     driver.get(url)
     textbox = driver.find_element_by_xpath('//*[@id="head"]/div/div[2]/form/input[2]')
     textbox.click()
-    time.sleep(1)
     driver.switch_to.window(driver.window_handles[0])
+    time.sleep(1)
     textbox.click()
     time.sleep(1)
     textbox.send_keys(film)
-    time.sleep(1)
+    time.sleep(1)    
     ign = driver.find_element_by_class_name('NotificationIgnore')
     ign.click()
-    search_b = driver.find_element_by_class_name('slist')
-    search_b.click()
     film = driver.find_element_by_xpath('//*[@id="movies"]/a[3]/img')
     film.click()
     first_button = driver.find_element_by_xpath('//*[@id="mainLoad"]/div[1]/div[2]/div[1]/a')
