@@ -1,20 +1,26 @@
-from selenium import webdriver
-import time
-product = input('Enter product name')
-print('Created by ayoub ech-chetyouy')
-web = webdriver.Chrome()
-web.set_window_position(2000,550)
-web.get("https://www.amazon.com/")
-y = web.find_element_by_id("twotabsearchtextbox")
-y.send_keys(product)
-w = web.find_element_by_id("nav-search-submit-button")
-w.click()
-ip = web.find_element_by_class_name("s-image")
-ip.click()
-try:
-    cart = web.find_element_by_id("add-to-cart-button")
-    cart.click()
-except:
-    while True:
-        time.sleep(2)
-        web.refresh()
+import tkinter as tk
+from tkinter import messagebox
+import instaloader
+
+root = tk.Tk()
+root.title('VDownloader')
+root.geometry('500x150')
+
+lien_var = tk.StringVar()
+#fonction
+def url():
+    # to get url from Entry
+    user = lien_var.get()
+    ig = instaloader.Instaloader()
+    ig.download_profile(user, profile_pic_only=True)
+    lien_var.set("")
+    tk.messagebox.showinfo(title='Download', message='Done')
+
+title = tk.Label(root, text='youtube downloader',font=('Helvatical',30,'bold')).pack()
+
+entry = tk.Entry(root, width='50', textvariable=lien_var).pack()
+
+btt = tk.Button(root,text='Download',command=url).pack()
+
+
+root.mainloop()
