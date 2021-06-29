@@ -35,12 +35,16 @@ if user_input in cammands_list:
     print(f'Command Found {user_input}')
     if user_input == "s":
         show_skills()
+        commint_and_close()
     elif user_input == "a":
         add_skills()
+        commint_and_close()
     elif user_input == "d":
         update_skills()
+        commint_and_close()
     elif user_input == "u":
         update_skills()
+        commint_and_close()
     else:
         print("App Is Closed")
 else:
