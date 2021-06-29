@@ -1,3 +1,9 @@
+import sqlite3
+db = sqlite3.connect("app.db")
+cr = db.cursor()
+
+uid = 1
+
 input_message = """
 What Do You Want T o DO ?
 "s" => Show All Skills
@@ -19,7 +25,6 @@ def delete_skills():
 def update_skills():
     print('Update Skill')
 
-
 if user_input in cammands_list:
     print(f'Command Found {user_input}')
     if user_input == "s":
@@ -30,5 +35,7 @@ if user_input in cammands_list:
         update_skills()
     elif user_input == "u":
         update_skills()
+    else:
+        print("App Is Closed")
 else:
     print(f'Sorry This Command {user_input} Is Not Found')
