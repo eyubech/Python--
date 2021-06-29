@@ -2,6 +2,12 @@ import sqlite3
 db = sqlite3.connect("app.db")
 cr = db.cursor()
 
+def commint_and_close():
+    db.commit()
+    db.close()
+    print("Connection To Database IS Closed")
+
+
 uid = 1
 
 input_message = """
