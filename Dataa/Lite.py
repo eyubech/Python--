@@ -31,7 +31,7 @@ def add_skills():
     prog = input("Write Skill Progress: ").strip()
     cr.execute(f"insert into skills(name, progress, user_id) values('{sk}', '{prog}', '{uid}')")
     commint_and_close()
-
+ 
 def delete_skills():
     sk = input("Write Skill Name: ").strip().capitalize()
     cr.execute(f"delete from skills where name = {sk} ")
