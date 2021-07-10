@@ -2,14 +2,12 @@ from tkinter import *
 import tkinter as tk
 from selenium import webdriver
 from tkinter import messagebox
-from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.keys import Keys
 import time
 root = tk.Tk()
 root.title('Egybest Downloader')
 root.geometry('500x150')
-
 lien_var = tk.StringVar()
-
 def url():
     film = lien_var.get()
     url = 'https://back.egybest.co/movies/2020'
@@ -22,32 +20,25 @@ def url():
     textbox.click()
     time.sleep(1)
     textbox.send_keys(film)
-    time.sleep(1)    
+    time.sleep(3)
     ign = driver.find_element_by_class_name('NotificationIgnore')
     ign.click()
-    film = driver.find_element_by_xpath('//*[@id="movies"]/a[3]/img')
-    film.click()
-    first_button = driver.find_element_by_xpath('//*[@id="mainLoad"]/div[1]/div[2]/div[1]/a')
-    first_button.click()
-    sec_button = driver.find_element_by_xpath('//*[@id="watch_dl"]/table/tbody/tr[1]/td[4]/a[1]')
-    sec_button.click()
-    dow = driver.find_element_by_xpath('/html/body/div[1]/div/p/a[1]')
-    dow.click()
+    textbox.send_keys(Keys.DOWN)
+    textbox.send_keys(Keys.ENTER)
     time.sleep(2)
-    driver.close()
-    dow.click()
-    time.sleep(2)
-    driver.close()
+    driver.execute_script("window.scrollTo(0, 13)")
+    down1 = driver.find_element_by_xpath('//*[@id="watch_dl"]/table/tbody/tr[2]/td[4]/a[1]')
+    down1.click()
+    time.sleep(5)
+    down2 = driver.find_element_by_name('a.bigbutton._reload')
+    down2.click()
+    driver.switch_to.window(driver.window_handles[1])
+    down2.click()
     lien_var.set("")
-    tk.messagebox.showinfo(title='Download', message='Done')
+    tk.messagebox.showinfo(title='Download', message='Enjoy the film \n Insta : ayoubech__')
     return film
-
-
 title = tk.Label(root, text='Egybest downloader',font=('Helvatical',30,'bold')).pack()
 t2 = tk.Label(root, text='Enter your film',font=('Helvatical',15,'bold')).pack()
 entry = tk.Entry(root, width='50', textvariable=lien_var).pack()
-
 btt = tk.Button(root,text='Download',command=url).pack()
-
-
 root.mainloop()
