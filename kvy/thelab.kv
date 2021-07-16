@@ -1,4 +1,32 @@
-MainWidget:
+AnchorLayoutExample:
+
+
+
+<AnchorLayoutExample>:
+    anchor_x
+    Button:
+        text: "A"
+        size_hint: .1, .1
+
+
+<BoxLayoutExample>:
+    Button:
+        text: "A"
+        size_hint: .5, .5
+        pos_hint: {"top": 1}
+    BoxLayout:
+        orientation: "vertical"
+        spacing: "10dp"
+        Button:
+            text: "B1"
+        Button:
+            text: "B2"
+        Button:
+            text: "B3"
+        Button:
+            text: "B4"
+    Label:
+        text: "C"
 
 
 <MainWidget>:
