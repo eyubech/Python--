@@ -1,13 +1,39 @@
-AnchorLayoutExample:
+StackLayoutExample:
+
+<StackLayoutExample>:
+
+
+
+
+<GridLayoutExample@GridLayout>:
+    rows: 2
+    Button:
+        text: "A"
+        size_hint: None, 1
+        width: "60dp"
+    BoxLayoutExample
+    Button:
+        text: "C"
+    Button:
+        text: "D"
+        size_hint: None, 1
+        width: "60dp"
+    Button:
+        text: "E"
+    Button:
+        text: "F"
 
 
 
 <AnchorLayoutExample>:
-    anchor_x
-    Button:
-        text: "A"
-        size_hint: .1, .1
-
+    anchor_x: "center"
+    anchor_y: "top"
+    BoxLayout:
+        size_hint: .2, .2
+        Button:
+            text: "A"
+        Button:
+            text: "B"
 
 <BoxLayoutExample>:
     Button:

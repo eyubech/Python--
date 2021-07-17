@@ -1,12 +1,21 @@
 from kivy.app import App
+from kivy.metrics import dp
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
+from kivy.uix.gridlayout import GridLayout
 from kivy.uix.widget import Widget
 from kivy.uix.anchorlayout import AnchorLayout
+from kivy.uix.stacklayout import StackLayout
 
 
-class AnchorLayoutExample(AnchorLayout):
-    pass
+class StackLayoutExample(StackLayout):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.orientation = "lr-tb"
+        for i in range(0, 20):
+            size = dp(100) + i
+            b = Button(text=str(i+1), size_hint=(None, None), size=(dp(100), size))
+            self.add_widget(b)
 
 
 class BoxLayoutExample(BoxLayout):
