@@ -14,7 +14,7 @@ class StackLayoutExample(StackLayout):
         self.orientation = "lr-tb"
         for i in range(0, 20):
             size = dp(100) + i
-            b = Button(text=str(i+1), size_hint=(None, None), size=(dp(100), size))
+            b = Button(text=str(i+1), size_hint=(None, None), size=(size , size))
             self.add_widget(b)
 
 
